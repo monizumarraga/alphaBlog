@@ -1,6 +1,14 @@
-<% provide(:titulo, "Home") %>
-<h1>Home</h1>
-<p>This is the home page</p>
+<% provide(:titulo, "My Blog") %>
+
+
+<div class="center jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome!</h1>
+    <p class="lead">Here is my personal website.</p>
+    <%= link_to "Sign up now", welcome_about_path, class:"btn btn-lg btn-primary"%>
+  </div>
+</div>
+
 
 <%= link_to 'Articles', articles_path  %>
 <%= link_to 'About', welcome_about_path  %>
