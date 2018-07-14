@@ -1,14 +1,13 @@
 <% provide(:titulo, "My Blog") %>
 
-
-<div class="center jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Welcome!</h1>
-    <p class="lead">Here is my personal website.</p>
-    <%= link_to "Sign up now", welcome_about_path, class:"btn btn-lg btn-primary"%>
-  </div>
+<div class="row">
+    <div class="jumbotron home col-xs-8 col-offset-2">
+        <div class='col-xs-8 home-logo'>
+        </div>
+        <div class='col-xs-12 center'>
+          <h1 class="display-4">Welcome!</h1>
+          <p>In this website I share some of my hobbies and personal CV.</p>
+          <p>I hope you'll like it!.</p>
+        </div>
+    </div>
 </div>
-
-
-<%= link_to 'Articles', articles_path  %>
-<%= link_to 'About', welcome_about_path  %>

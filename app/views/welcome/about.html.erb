@@ -1,6 +1,31 @@
-<% provide(:titulo, "About") %>
-<h1>About</h1>
-<p>Hello this is the aboutpage</p>
+<% provide(:titulo, "About me") %>
 
-<%= link_to image_tag('logo.png'), welcome_home_path %>
-<%= link_to 'Home', welcome_home_path  %>
+
+<h2 align='center'> About me</h2>
+<div class="row">
+    <div class="well cv col-xs-8 col-offset-2">
+        <div class='col-xs-2 well-logo'>
+        </div>
+        <div class='col-xs-12'>
+            <p>Hello! I'm Monica.</p>
+            <p>Besides being an engineer I also like travelling, reading, cooking, baking, drawing...</p>
+            <p>You can know more about me through my social websites.</p>
+            <p>If you would like to know more about me, you can contact me</p>
+            <hr>
+            <div style="display:'flex' flex-wrap:'rows'">
+                <div class="article-actions col-xs-10">
+                    <%= link_to "Education", welcome_cv_path, class: "btn btn-primary btn-xs" %>
+                    <%= link_to "Courses", articles_path, class:"btn btn-primary btn-xs" %>
+                    <%= link_to "Projects", welcome_cv_path, class:"btn btn-primary btn-xs" %>
+                    <br>
+                    <%= link_to "Computer skills", welcome_cv_path, class:"btn btn-primary btn-xs" %>
+                </div>
+                <div class="center">
+                    <a href="https://es.linkedin.com/in/monica-zumarraga-389521101">
+                        <img src="/assets/linkedin.png", class="image-link"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

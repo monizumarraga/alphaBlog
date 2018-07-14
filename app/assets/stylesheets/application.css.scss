@@ -38,13 +38,87 @@ body{
 
 .jumbotron{
     background-color: #d4cbc4;
-    background-image: asset-url('me.png');
-    background-size: cover;
-    height: 400px;
-    background-repeat: no-repeat;
-    background-size: 30%;
-    background-position: left center; 
+    height: auto;
+    min-height: 400px;
     color: #fff;
+    background-position: 2% center; 
+}
+
+.image-home{
+    margin: 5px;
+    max-width: 30%;
+    height: auto;
+}
+
+.home-logo {
+    background-image: asset-url('me.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top center; 
+}
+
+.home {
+    width: -webkit-fill-available;
+    display:flex;
+    align-content: center;
+}
+
+.cv-logo {
+    background-image: asset-url('cv.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top center; 
+}
+
+.cv {
+    color: #58514c;
+    background-color: #e7dfdc;
+    width: -webkit-fill-available;
+    display:flex;
+}
+
+.image-link{
+    height: 40px;
+    width: 40px;
+    margin: 4px;
+}
+
+.column-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 10px;
+}
+
+.well-logo {
+    background-image: asset-url('aboutme.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top center; 
+}
+
+.well {
+    color: #58514c;
+    background-color: #e7dfdc;
+    width: -webkit-fill-available;
+    height:auto;
+    min-height: 150px;
+}
+
+.well p {
+    text-align: left;
+}
+
+.title-label{
+    text-align: left;
+}
+
+.article-actions{
+    text-align: center;
+}
+
+.btn {
+    margin: 5px;
 }
 
 .btn-primary{
