@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :articles;
+  get 'articles/index';
   get 'welcome/home';
   get 'welcome/about';
   get 'welcome/cv';

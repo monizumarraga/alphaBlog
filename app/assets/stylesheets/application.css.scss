@@ -39,7 +39,7 @@ body{
 .jumbotron{
     background-color: #d4cbc4;
     height: auto;
-    min-height: 400px;
+    min-height: -webkit-fill-available;
     color: #fff;
     background-position: 2% center; 
 }
@@ -54,7 +54,7 @@ body{
     background-image: asset-url('me.png');
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: top center; 
+    background-position: center; 
 }
 
 .home {

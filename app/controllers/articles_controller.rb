@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   def index
     @articles=Article.all.order("created_at DESC")
   end
-
+  
   def new
   	@boton="Create"
     @article = Article.new
@@ -51,6 +51,6 @@ class ArticlesController < ApplicationController
   end
   
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, :category)
   end
 end
