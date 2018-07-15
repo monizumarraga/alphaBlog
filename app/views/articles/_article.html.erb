@@ -1,0 +1,14 @@
+<% obj.each do |course| %>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="well well-lg">
+                <div class="article-title">
+                    <%= link_to course.title, article_path(course)  %>
+                </div>
+                <div class="article-body">
+                    <%= truncate(course.description, lenght: 100) %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

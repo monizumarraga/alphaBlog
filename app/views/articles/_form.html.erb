@@ -28,6 +28,14 @@
                 <%= f.text_area :description, rows: 8, class:"form-control", id:"description", placeholder:"Description of article", autofocus: true  %>
             </div>
           </div>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">
+                <label for="date">Date</label>
+            </div>
+            <div class="col-sm-8 col-form-label">
+                <%= f.text_field :date, class:"form-control", id:"date", placeholder:"Date of article", autofocus: true  %>
+            </div>
+          </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                   <%= f.submit "#{@boton} course", class:"btn btn-primary" %>

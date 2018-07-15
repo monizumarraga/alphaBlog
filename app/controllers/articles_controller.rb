@@ -2,7 +2,23 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   
   def index
-    @articles=Article.all.order("created_at DESC")
+    @articles=@articles = Article.paginate(page: params[:page], per_page: 5)
+  end
+  
+  def course
+    @articles=Article.where(category: 'Course').order("created_at DESC")
+  end
+  
+  def education
+    @articles=Article.where(category: 'Education').order("created_at DESC")
+  end
+  
+  def project
+    @articles=Article.where(category: 'Project').order("created_at DESC")
+  end
+  
+  def computer
+    @articles=Article.where(category: 'Computer skill').order("created_at DESC")
   end
   
   def new
@@ -13,8 +29,9 @@ class ArticlesController < ApplicationController
   def create
   	@boton="Create"
     @article = Article.new(article_params)
+    @article.user=User.first
     if @article.save
-      flash[:success] = "Article was successfully creted"
+      flash[:success] = "Article was successfully created"
       redirect_to article_path(@article)
     else
       render 'new'
@@ -47,10 +64,13 @@ class ArticlesController < ApplicationController
     private
   
   def set_article
-    @article = Article.find(params[:id])
+    @text= params[:id]
+    if @text!='course' && @text!='education' && @text!='computer' && @text!='project'
+      @article = Article.find(params[:id])
+    end
   end
   
   def article_params
-    params.require(:article).permit(:title, :description, :category)
+    params.require(:article).permit(:title, :description, :category, :date, :user_id)
   end
 end

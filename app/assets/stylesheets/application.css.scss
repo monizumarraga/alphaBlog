@@ -18,6 +18,17 @@ body{
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.footer{
+    color: #9e938e;
+    background-color: #fcf7f5;
+    width:100%;
+}
+
+.footer-link{
+    color: #9e938e;
+}
+
+
 #logo {
     float:left;
     font-size: 1.7em;
@@ -78,8 +89,8 @@ body{
 }
 
 .image-link{
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
     margin: 4px;
 }
 
