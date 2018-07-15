@@ -2,23 +2,23 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   
   def index
-    @articles=@articles = Article.paginate(page: params[:page], per_page: 5)
+    @articles= Article.where(user_id: current_user.id).paginate(page: params[:page], per_page: 5)
   end
   
   def course
-    @articles=Article.where(category: 'Course').order("created_at DESC")
+    @articles=Article.where(user_id: current_user.id , category: 'Course').paginate(page: params[:page], per_page: 5)
   end
   
   def education
-    @articles=Article.where(category: 'Education').order("created_at DESC")
+    @articles=Article.where(user_id: current_user.id , category: 'Education').paginate(page: params[:page], per_page: 5)
   end
   
   def project
-    @articles=Article.where(category: 'Project').order("created_at DESC")
+    @articles=Article.where(user_id: current_user.id , category: 'Project').paginate(page: params[:page], per_page: 5)
   end
   
   def computer
-    @articles=Article.where(category: 'Computer skill').order("created_at DESC")
+    @articles=Article.where(user_id: current_user.id , category: 'Computer skill').paginate(page: params[:page], per_page: 5)
   end
   
   def new
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
   def create
   	@boton="Create"
     @article = Article.new(article_params)
-    @article.user=User.first
+    @article.user=current_user
     if @article.save
       flash[:success] = "Article was successfully created"
       redirect_to article_path(@article)
