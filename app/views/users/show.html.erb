@@ -1,3 +1,18 @@
-<h1 align="center">Welcome to <%= @user.username %>'s page</h1>
-<h4 align="center"><%= @user.username %>'s articles</h4>
-<%= render 'articles/article', obj: @user.articles %>
+<div class="well-lg user_top">
+    <h1 align="center">Welcome to <%= @user.username %>'s page</h1>
+    <br>
+    
+    <div class="well-lg article_top">
+        <h4 align="center">Education</h4>
+        <%= render 'articles/article', obj: @user.articles.where(category:'Education') %>
+        <hr>
+        <h4 align="center">Courses</h4>
+        <%= render 'articles/article', obj: @user.articles.where(category:'Course') %>
+        <hr>
+        <h4 align="center">Projects</h4>
+        <%= render 'articles/article', obj: @user.articles.where(category:'Project') %>
+        <hr>
+        <h4 align="center">Computer skills</h4>
+        <%= render 'articles/article', obj: @user.articles.where(category:'Computer skill') %>
+    </div>
+</div>

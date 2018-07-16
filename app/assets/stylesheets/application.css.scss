@@ -18,6 +18,11 @@ body{
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.row{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .footer{
     color: #9e938e;
     background-color: #fcf7f5;
@@ -118,6 +123,31 @@ body{
 
 .well p {
     text-align: left;
+}
+
+.article {
+    color: #58514c;
+    background-color: #f4efef;
+    width: -webkit-fill-available;
+    height:auto;
+}
+
+.user_top {
+    color: #58514c;
+    background-color: #e7dfdc;
+    width: -webkit-fill-available;
+    height:auto;
+    padding: 5px;
+    margin:10px;
+}
+
+.article_top {
+    color: #58514c;
+    background-color: #ffffff;
+    width: -webkit-fill-available;
+    height:auto;
+    padding: 5px;
+    margin:10px;
 }
 
 .title-label{
