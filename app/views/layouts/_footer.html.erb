@@ -11,20 +11,13 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <%= link_to "Edit your profile", edit_user_path(current_user), class:"dropdown-item"%>
-              <div class="divider"></div>  
               <%= link_to "View your profile", user_path(current_user), class:"dropdown-item"%>
-            </ul>
-          </div>
-          <div class="dropup navbar-right">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              User articles
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <%= link_to "Articles List", user_path(current_user), class:"dropdown-item"%>
+              <div class="divider"></div>  
+              <%= link_to "Edit your profile", edit_user_path(current_user), class:"dropdown-item"%>
               <div class="divider"></div>
               <%= link_to "New Course", new_article_path, class:"dropdown-item"%>
+              <div class="divider"></div>
+              <%= link_to "New details", new_detail_path, class:"dropdown-item"%>
             </ul>
           </div>
       <% else %>

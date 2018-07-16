@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'details/index'
+  get 'details/new'
+  get 'details/edit'
+  get 'details/show'
+  get 'user/index'
+  get 'user/new'
+  get 'user/edit'
+  get 'user/show'
   get 'signup', to: 'users#new';
   get 'users/index';
   resources :users;
@@ -9,6 +17,9 @@ Rails.application.routes.draw do
   get 'articles/education'  => 'articles#education';
   get 'articles/project'  => 'articles#project';
   resources :articles;
+  
+  get 'details/index';
+  resources :details;
   
   get 'welcome/home';
   get 'welcome/about';

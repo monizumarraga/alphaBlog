@@ -1,0 +1,20 @@
+<% obj.each do |detail| %>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="well-lg article">
+                <div class="article-title">
+                    <%= link_to detail.user.username, detail_path(detail.id)  %>
+                </div>
+                <div class="article-title">
+                    <%= truncate(detail.welcome, lenght: 100) %>
+                </div>
+                <div class="article-body">
+                    <%= truncate(detail.aboutMe, lenght: 100) %>
+                </div>
+                <div class="article-body">
+                    <%= truncate(detail.profile, lenght: 100) %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

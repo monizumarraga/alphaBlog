@@ -82,7 +82,7 @@ body{
 .cv-logo {
     background-image: asset-url('cv.png');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 150px;
     background-position: top center; 
 }
 
@@ -91,6 +91,8 @@ body{
     background-color: #e7dfdc;
     width: -webkit-fill-available;
     display:flex;
+    height:auto;
+    min-height: 250px;
 }
 
 .image-link{
@@ -109,7 +111,7 @@ body{
 .well-logo {
     background-image: asset-url('aboutme.png');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 150px;
     background-position: top center; 
 }
 
@@ -118,7 +120,7 @@ body{
     background-color: #e7dfdc;
     width: -webkit-fill-available;
     height:auto;
-    min-height: 150px;
+    min-height: 250px;
 }
 
 .well p {
@@ -156,6 +158,10 @@ body{
 
 .article-actions{
     text-align: center;
+}
+
+.article-body{
+    white-space: pre-line;
 }
 
 .btn {

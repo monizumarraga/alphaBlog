@@ -1,0 +1,74 @@
+<%= render 'shared/errors', obj: @detail %>
+
+<div class="row">
+    <div class='col-xs-12'>
+        <%= form_for @detail do |f| %>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">
+                <label for="welcome">Welcome</label>
+            </div>
+            <div class="col-sm-8 col-form-label">
+                <%= f.text_area :welcome, rows: 8, class:"form-control", id:"welcome", placeholder:"User welcome message", autofocus: true  %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">
+                <label for="aboutMe">About me</label>
+            </div>
+            <div class="col-sm-8 col-form-label">
+                <%= f.text_area :aboutMe, rows: 8, class:"form-control", id:"aboutMe", placeholder:"User about me message", autofocus: true  %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">
+                <label for="profile">Profile</label>
+            </div>
+            <div class="col-sm-8 col-form-label">
+                <%= f.text_area :profile, rows: 8, class:"form-control", id:"profile", placeholder:"User profile message", autofocus: true  %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">
+                <label for="fb">Facebook link</label>
+            </div>
+            <div class="col-sm-8 col-form-label">
+                <%= f.text_field :fb, rows: 8, class:"form-control", id:"fb", placeholder:"User facebook link", autofocus: true  %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">
+                <label for="instagram">Instagram link</label>
+            </div>
+            <div class="col-sm-8 col-form-label">
+                <%= f.text_field :instagram, rows: 8, class:"form-control", id:"instagram", placeholder:"User instagram link", autofocus: true  %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">
+                <label for="linkedin">Linkedin link</label>
+            </div>
+            <div class="col-sm-8 col-form-label">
+                <%= f.text_field :linkedin, rows: 8, class:"form-control", id:"linkedin", placeholder:"User linkedin link", autofocus: true  %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">
+                <label for="github">GitHub link</label>
+            </div>
+            <div class="col-sm-8 col-form-label">
+                <%= f.text_field :github, rows: 8, class:"form-control", id:"github", placeholder:"User github link", autofocus: true  %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                  <%= f.submit "#{@boton} details", class:"btn btn-primary" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <%= link_to "Cancel request and return to details listing", details_path %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+</div>

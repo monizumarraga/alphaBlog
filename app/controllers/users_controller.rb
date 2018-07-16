@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   
     def set_user
       @user = User.find(params[:id])
-      @num_user=params[:id]
+      @detail = Detail.find_by(user_id: params[:id])
     end
     
     def user_params

@@ -1,0 +1,34 @@
+<% provide(:titulo, @detail.user.username) %>
+
+<h2 align='center'> User: <%= @detail.user.username %></h2>
+<br>
+<div class="well col-xs-8 col-offset-2">
+    <div class="title-label">
+        <h4><strong>Welcome: </strong></h4>
+    </div>
+    <hr>
+    <%= simple_format(@detail.welcome) %>
+    <br>
+    <div class="title-label">
+        <h4><strong>About me: </strong></h4>
+    </div>
+    <hr>
+    <%= simple_format(@detail.aboutMe) %>
+    <br>
+    <div class="title-label">
+        <h4><strong>Profile: </strong></h4>
+    </div>
+    <hr>
+    <%= simple_format(@detail.profile) %>
+    
+    <div class="article-actions">
+        <% if logged_in? && current_user == @detail.user %>
+            <%= link_to "Edit these details", edit_detail_path(@detail), class:"btn btn-primary btn-xs" %>
+            <%= link_to "Delete these details", detail_path(@detail), method: :delete, 
+                    data: { confirm: "Are you sure you want to delete the details?"},
+                    class: "btn btn-xs btn-danger" %>
+            <br>
+        <% end %>
+        <%= link_to "View all details", details_path, class:"btn btn-primary btn-xs" %>
+    </div>
+</div>

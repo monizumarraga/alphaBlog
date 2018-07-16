@@ -1,7 +1,21 @@
-<div class="well-lg user_top">
-    <h1 align="center">Welcome to <%= @user.username %>'s page</h1>
+<% if @detail %>
+    <h1 align="center"><%= link_to "Welcome to #{@user.username}'s page", detail_path(@detail)  %></h1>
+    <%= render 'details/welcome', obj: @detail %>
     <br>
+    <%= render 'details/about', obj: @detail %>
+    <br>
+    <%= render 'details/profile', obj: @detail %>
+    <br>
+<% else %>
+    <h1 align="center">Welcome to <%= @user.username %>'s page</h1>
+    <h2 align='center'> Welcome</h2>
+    <br>
+    <h2 align='center'> About me</h2>
+    <br>
+    <h2 align='center'> Profile</h2>
+<% end %>
     
+<div class="well-lg user_top">
     <div class="well-lg article_top">
         <h4 align="center">Education</h4>
         <%= render 'articles/article', obj: @user.articles.where(category:'Education') %>
