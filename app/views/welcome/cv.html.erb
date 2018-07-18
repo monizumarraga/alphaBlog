@@ -1,5 +1,6 @@
 <% provide(:titulo, "CV") %>
 
+<%if current_user %>
 <%= render 'details/profile', obj: current_user.detail %>
 <div class="row">
     <div class="cv-link col-xs-8 col-offset-2">
@@ -25,3 +26,4 @@
         </div>
     </div>
 </div>
+<%end %>

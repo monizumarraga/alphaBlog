@@ -1,3 +1,5 @@
 <% provide(:titulo, "About me") %>
 
+<%if current_user %>
 <%= render 'details/about', obj: current_user.detail %>
+<%end %>
