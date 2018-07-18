@@ -1,33 +1,25 @@
 <% provide(:titulo, "CV") %>
 
-
-<h2 align='center'> Profile</h2>
+<%= render 'details/profile', obj: current_user.detail %>
 <div class="row">
-    <div class="well cv col-xs-8 col-offset-2">
-        <div class='col-xs-2 cv-logo'>
+    <div class="cv-link col-xs-8 col-offset-2">
+        <div class='col-xs-2'>
         </div>
         <div class='col-xs-12'>
-            <p>Industrial Organization Engineer with 10 years of specialized experience in Power Generation Plants and data management.</p>
-            <p>I am the person responsible for the Electrical Control system working with multicultural, multidisciplinary teams, in international and national projects.</p>
-            <p>As remarkable contribution, I have developed the automatization of engineering tasks in Power Generation Plants and cooperate in the integration of different department integration process.</p>
-            <p>I was glad about being an enginner but I felt like it was not enough, so I decided to continue studying to improve my computer skills. </p>
-            <p>Here you can see one of my creations but if you would like to see more examples, check my projects!</p>
-            <hr>
             <div style="display:'flex' flex-wrap:'rows'">
                 <div class="article-actions col-xs-8">
-                    <%= link_to "Education", articles_education_path, class: "btn btn-primary btn-xs" %>
-                    <%= link_to "Courses", articles_course_path, class:"btn btn-primary btn-xs" %>
-                    <%= link_to "Projects", articles_project_path, class:"btn btn-primary btn-xs" %>
-                    <br>
-                    <%= link_to "Computer skills", articles_computer_path, class:"btn btn-primary btn-xs" %>
-                </div>
-                <div class="center col-xs-4">
-                    <a href="https://es.linkedin.com/in/monica-zumarraga-389521101">
-                        <img src="/assets/linkedin.png", alt="linkedin", class="image-link"/>
-                    </a>
-                    <a href="https://github.com/monizumarraga">
-                        <img src="/assets/github.png", alt="github", class="image-link"/>
-                    </a>
+                    <% categories=Category.all %>
+                    <% if categories %>
+                        <% categories.each do |cat| %>
+                            <% relation= ArticleCategory.where(category_id: cat.id)%>
+                            <% if relation && current_user%>
+                                <%= link_to cat.name, articles_list_path(name: cat.name), class: "btn btn-primary btn-xs" %>
+                                <% if !true %>
+                                <%= link_to cat.name, showarticle_path(@articles.reverse ), class: "btn btn-primary btn-xs" %>
+                                <%end%>
+                            <% end %>
+                        <% end %>
+                    <% end %>
                 </div>
             </div>
         </div>

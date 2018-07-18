@@ -1,26 +1,3 @@
 <% provide(:titulo, "About me") %>
 
-<h2 align='center'> About me</h2>
-<div class="row">
-    <div class="well cv col-xs-8 col-offset-2">
-        <div class='col-xs-2 well-logo'>
-        </div>
-        <div class='col-xs-12'>
-            <p>Hello! I'm Monica.</p>
-            <p>Besides being an engineer I also like travelling, reading, cooking, baking, drawing...</p>
-            <p>You can know more about me through my social websites.</p>
-            <p>If you would like to know more about me, you can contact me</p>
-            <hr>
-            <div style="display:'flex' flex-wrap:'rows'">
-                <div class="center">
-                    <a href="https://www.facebook.com/monica.zumarraga.1">
-                        <img src="/assets/fb.png", alt="fb", class="image-link"/>
-                    </a>
-                    <a href="https://www.instagram.com/monizumarraga/">
-                        <img src="/assets/instagram.png", alt="instagram", class="image-link"/>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<%= render 'details/about', obj: current_user.detail %>

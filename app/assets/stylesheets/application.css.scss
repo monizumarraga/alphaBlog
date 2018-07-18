@@ -18,10 +18,6 @@ body{
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.row{
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
 
 .footer{
     color: #9e938e;
@@ -95,6 +91,13 @@ body{
     min-height: 250px;
 }
 
+.cv-link {
+    color: #58514c;
+    background-color: #e7dfdc;
+    width: -webkit-fill-available;
+    display:flex;
+    height:auto;
+}
 .image-link{
     height: 60px;
     width: 60px;
@@ -121,6 +124,8 @@ body{
     width: -webkit-fill-available;
     height:auto;
     min-height: 250px;
+    padding: 0px;
+    margin-bottom: 0px;
 }
 
 .well p {
@@ -141,6 +146,11 @@ body{
     height:auto;
     padding: 5px;
     margin:10px;
+}
+
+.container{
+    padding: 19px;
+    margin-bottom: 20px;
 }
 
 .article_top {

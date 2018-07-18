@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'details/new'
   get 'details/edit'
   get 'details/show'
+  
   get 'user/index'
   get 'user/new'
   get 'user/edit'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   resources :users;
     
   get 'articles/index';
+  get 'articles/list'  => 'articles#list';
   get 'articles/course'  => 'articles#course';
   get 'articles/computer'  => 'articles#computer';
   get 'articles/education'  => 'articles#education';
@@ -26,12 +28,10 @@ Rails.application.routes.draw do
   get 'welcome/cv';
   root 'welcome#home';
   
-  
   get 'login', to: 'sessions#new';
   post 'login', to: 'sessions#create';
   delete 'logout', to: 'sessions#destroy';
   
-
   resources :categories, except: [:destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

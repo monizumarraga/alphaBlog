@@ -21,27 +21,10 @@
             <h4 align="center"><%= category.name %></h4>
             <% relation= ArticleCategory.where(category_id: category.id)%>
             <% if relation %>
-            <%= render 'articles/article', obj: @user.articles.where(id: relation.pluck(:article_id)) %>
+            <%= render 'articles/article', obj: @user.articles.where(id: relation.pluck(:article_id)).reverse %>
             <% end %>
             <hr>
         </div>
     <% end %>
 </div>
     
-<% if !true %>
-<div class="well-lg user_top">
-    <div class="well-lg article_top">
-        <h4 align="center">Education</h4>
-        <%= render 'articles/article', obj: @user.articles.where(category:'Education') %>
-        <hr>
-        <h4 align="center">Courses</h4>
-        <%= render 'articles/article', obj: @user.articles.where(category:'Course') %>
-        <hr>
-        <h4 align="center">Projects</h4>
-        <%= render 'articles/article', obj: @user.articles.where(category:'Project') %>
-        <hr>
-        <h4 align="center">Computer skills</h4>
-        <%= render 'articles/article', obj: @user.articles.where(category:'Computer skill') %>
-    </div>
-</div>
-<% end %>

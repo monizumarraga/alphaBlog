@@ -1,0 +1,13 @@
+<% provide(:titulo, obj.categories.name) %>
+<h1 align='center'>Education</h1>
+
+<% if obj %>
+<h1 align="center">Listing all articles</h1>
+<div align="center">
+    <%= will_paginate %>
+</div>
+<%= render 'article', obj: @articles %>
+<div align="center">
+    <%= will_paginate %>
+</div>
+<% end %>

@@ -1,0 +1,16 @@
+<% provide(:titulo, params[:name]) %>
+
+<% name= params[:name] %>
+    
+<div class="">
+    <% Category.where(name: name).each do |category| %>
+        <div class=" article_top">
+            <h1 align="center"><%= params[:name] %></h4>
+            <% relation= ArticleCategory.where(category_id: category.id)%>
+            <% if relation %>
+                <%= render 'articles/article', obj: current_user.articles.where(id: relation.pluck(:article_id)).reverse %>
+            <% end %>
+            <hr>
+        </div>
+    <% end %>
+</div>
