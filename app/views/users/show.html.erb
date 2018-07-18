@@ -1,10 +1,10 @@
-<% if @detail %>
-    <h1 align="center"><%= link_to "Welcome to #{@user.username}'s page", detail_path(@detail)  %></h1>
-    <%= render 'details/welcome', obj: @detail %>
+<% if @user.detail %>
+    <h1 align="center"><%= link_to "Welcome to #{@user.username}'s page", detail_path(@user.detail)  %></h1>
+    <%= render 'details/welcome', obj: @user.detail %>
     <br>
-    <%= render 'details/about', obj: @detail %>
+    <%= render 'details/about', obj: @user.detail %>
     <br>
-    <%= render 'details/profile', obj: @detail %>
+    <%= render 'details/profile', obj: @user.detail %>
     <br>
 <% else %>
     <h1 align="center">Welcome to <%= @user.username %>'s page</h1>
@@ -14,7 +14,21 @@
     <br>
     <h2 align='center'> Profile</h2>
 <% end %>
+
+<div class="well-lg user_top">
+    <% Category.all.each do |category| %>
+        <div class="well-lg article_top">
+            <h4 align="center"><%= category.name %></h4>
+            <% relation= ArticleCategory.where(category_id: category.id)%>
+            <% if relation %>
+            <%= render 'articles/article', obj: @user.articles.where(id: relation.pluck(:article_id)) %>
+            <% end %>
+            <hr>
+        </div>
+    <% end %>
+</div>
     
+<% if !true %>
 <div class="well-lg user_top">
     <div class="well-lg article_top">
         <h4 align="center">Education</h4>
@@ -30,3 +44,4 @@
         <%= render 'articles/article', obj: @user.articles.where(category:'Computer skill') %>
     </div>
 </div>
+<% end %>

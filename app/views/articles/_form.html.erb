@@ -8,8 +8,9 @@
                 <label for="category">Category select</label>
             </div>
             <div class="col-sm-8 col-form-label">
-                <% array = ['Education', 'Project', 'Course', 'Computer skill'] %>
-                <%= f.select :category, options_for_select(array, @article.category), placeholder:"Category of article" %>
+                <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+                    <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox")+ cb.text} %>
+                <% end %>
             </div>
           </div>
           <div class="form-group row">
@@ -36,11 +37,11 @@
                 <%= f.text_field :date, class:"form-control", id:"date", placeholder:"Date of article", autofocus: true  %>
             </div>
           </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                      <%= f.submit "#{@boton} course", class:"btn btn-primary" %>
-                </div>
-              </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                  <%= f.submit "#{@boton} course", class:"btn btn-primary" %>
+            </div>
+          </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <%= link_to "Cancel request and return to courses listing", articles_path %>

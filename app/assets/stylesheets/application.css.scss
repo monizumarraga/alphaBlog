@@ -82,7 +82,7 @@ body{
 .cv-logo {
     background-image: asset-url('cv.png');
     background-repeat: no-repeat;
-    background-size: 150px;
+    background-size: 100%;
     background-position: top center; 
 }
 
@@ -111,7 +111,7 @@ body{
 .well-logo {
     background-image: asset-url('aboutme.png');
     background-repeat: no-repeat;
-    background-size: 150px;
+    background-size: 100%;
     background-position: top center; 
 }
 
@@ -162,6 +162,18 @@ body{
 
 .article-body{
     white-space: pre-line;
+}
+
+.input_checkbox input{
+    width: auto !important;
+}
+
+.badge{
+    background-color:  #ffffff;
+    text-tramsform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+    margin: 3px;
 }
 
 .btn {

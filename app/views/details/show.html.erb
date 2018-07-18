@@ -22,7 +22,7 @@
     <%= simple_format(@detail.profile) %>
     
     <div class="article-actions">
-        <% if logged_in? && current_user == @detail.user %>
+        <% if logged_in? && (current_user == @detail.user || current_user.admin? )%>
             <%= link_to "Edit these details", edit_detail_path(@detail), class:"btn btn-primary btn-xs" %>
             <%= link_to "Delete these details", detail_path(@detail), method: :delete, 
                     data: { confirm: "Are you sure you want to delete the details?"},

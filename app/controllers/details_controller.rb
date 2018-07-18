@@ -58,7 +58,7 @@ class DetailsController < ApplicationController
     end
     
     def require_same_user
-        if current_user!=@detail.user
+        if current_user!=@detail.user  and !current_user.admin?
           flash[:danger] = "You can only create, edit or delete your own Details"
           redirect_to root_path
         end
