@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   get 'user/show'
   get 'signup', to: 'users#new';
   get 'users/index';
+  get 'user/welcome', to:"users#welcome"
+  get 'user/about', to:"users#about"
+  get 'user/profile', to: "users#profile"
+  get 'user/details', to: "users#details"
+  get 'users_search', to:"users#search";
   resources :users;
     
   get 'articles/index';
@@ -18,6 +23,7 @@ Rails.application.routes.draw do
   get 'articles/computer'  => 'articles#computer';
   get 'articles/education'  => 'articles#education';
   get 'articles/project'  => 'articles#project';
+  get 'articles_search', to:"articles#search";
   resources :articles;
   
   get 'details/index';

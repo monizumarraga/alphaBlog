@@ -1,0 +1,20 @@
+<% provide(:titulo, "#{@seluser.username} #{@category.name}") %>
+
+<% if @articles %>
+    <div class="row well">
+        <div class="well-lg user_top">
+            <h4 align="center"><%= @category.name %></h4>
+            <%= render 'articles/article', obj: @articles %>
+        </div>
+    </div>
+<% else %>
+    <div class="row">
+        <div class="jumbotron home col-xs-8 col-offset-2">
+            <div class='col-xs-8 home-logo'>
+            </div>
+            <div class='col-xs-12 center'>
+              <h1 class="display-4">@category.name!</h1>
+            </div>
+        </div>
+    </div>
+<% end %>

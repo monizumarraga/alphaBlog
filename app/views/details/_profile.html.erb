@@ -10,12 +10,16 @@
             <hr>
             <div style="display:'flex' flex-wrap:'rows'">
                 <div class="center ">
-                    <a href="<%= obj.linkedin %>">
-                        <img src="/assets/linkedin.png", alt="linkedin", class="image-link"/>
-                    </a>
-                    <a href="<%= obj.github %>">
-                        <img src="/assets/github.png", alt="github", class="image-link"/>
-                    </a>
+                    <% if obj.linkedin != '' %>
+                        <a href="<%= obj.linkedin %>">
+                            <img src="/assets/linkedin.png", alt="linkedin", class="image-link"/>
+                        </a>
+                    <% end %>
+                    <% if obj.github != '' %>
+                        <a href="<%= obj.github %>">
+                            <img src="/assets/github.png", alt="github", class="image-link"/>
+                        </a>
+                    <% end %>
                 </div>
             </div>
         </div>

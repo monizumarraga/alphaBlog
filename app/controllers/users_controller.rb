@@ -1,10 +1,12 @@
+require 'will_paginate/array'
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
   before_action :require_admin, only: [:destroy]
   
   def index
-    @users = User.paginate(page: params[:page], per_page: 5)
+    @users=User.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
   end
   
   def new
@@ -43,6 +45,28 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:danger] = "User was successfully deleted"
     redirect_to users_path
+  end
+  
+  def welcome
+    @seluser=User.find(params[:format])
+  end
+  
+  def about
+    @seluser=User.find(params[:format])
+  end
+  
+  def profile
+    @seluser=User.find(params[:format])
+  end
+  
+  def details
+    @seluser=User.find(params[:format])
+    @category=Category.find_by(name: params[:name])
+    relation= ArticleCategory.where(category_id: @category.id)
+    if relation 
+      @articles= @seluser.articles.where(id: relation.pluck(:article_id)).reverse
+    else
+    end
   end
   
     private

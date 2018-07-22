@@ -16,17 +16,17 @@
 <% end %>
 
 <div class="row well">
-<div class="well-lg user_top">
-    <% Category.all.each do |category| %>
-        <div class="well-lg article_top">
-            <h4 align="center"><%= category.name %></h4>
-            <% relation= ArticleCategory.where(category_id: category.id)%>
-            <% if relation %>
-            <%= render 'articles/article', obj: @user.articles.where(id: relation.pluck(:article_id)).reverse %>
-            <% end %>
-            <hr>
-        </div>
-    <% end %>
-</div>
+    <div class="well-lg user_top">
+        <% Category.all.each do |category| %>
+            <div class="well-lg article_top">
+                <h4 align="center"><%= category.name %></h4>
+                <% relation= ArticleCategory.where(category_id: category.id)%>
+                <% if relation %>
+                <%= render 'articles/article', obj: @user.articles.where(id: relation.pluck(:article_id)).reverse %>
+                <% end %>
+                <hr>
+            </div>
+        <% end %>
+    </div>
 </div>
     

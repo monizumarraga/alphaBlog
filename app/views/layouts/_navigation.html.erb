@@ -6,24 +6,72 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <%if current_user %>
-        <li class="nav-item">
-          <%= link_to "About me", welcome_about_path, class:"nav-link"%>
-        </li>
-        <li class="nav-item">
-          <%= link_to "CV", welcome_cv_path, class:"nav-link"%>
-        </li>
-      <%end%>
       <li class="nav-item">
         <%= link_to "Users", users_path, class:"nav-link"%>
       </li>
+      <%if @seluser %>
+            <li class="dropdown nav-item">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              User <%= @seluser.username %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+              <%= link_to "Welcome user", user_welcome_path(@seluser.id), class:"nav-link"%>
+              <div class="divider"></div>  
+              <%= link_to "About me", user_about_path(@seluser.id), class:"nav-link"%>
+              <div class="divider"></div>
+              <%= link_to "CV", user_profile_path(@seluser.id), class:"nav-link"%>
+            </ul>
+          </li>
+      <%end%>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <%= link_to "Articles", articles_path, class:"nav-link"%>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
+    <ul class="navbar-nav mr-auto navbar-right">
+      <% if logged_in? %>
+          <li class="dropdown nav-item">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              User Profile <%= "Admin" if current_user.admin? %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <%= link_to "View your profile", user_path(current_user), class:"dropdown-item"%>
+              <div class="divider"></div>  
+              <%= link_to "Edit your profile", edit_user_path(current_user), class:"dropdown-item"%>
+              <div class="divider"></div>
+              <%= link_to "New Course", new_article_path, class:"dropdown-item"%>
+              <div class="divider"></div>
+              <%= link_to "New details", new_detail_path, class:"dropdown-item"%>
+              <% if logged_in? and current_user.admin? %>
+                <div class="divider"></div>
+                <%= link_to "View Categories", categories_path, class:"dropdown-item" %>
+                <div class="divider"></div>
+                <%= link_to "Create New Category", new_category_path, class:"dropdown-item" %>
+              <% end %>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Log out', logout_path, method: :delete, class:"footer-link" %>
+          </li>
+      <% else %>
+          <li class="nav-item">
+            <%= link_to 'Log in', login_path, class:"footer-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign up', new_user_path, class:"footer-link" %>
+          </li>
+      <% end %>
+    </ul>
+    <%= form_tag users_search_path, remote: true, method: :get, id: "users_search-form" do %>
+      <div class="form-inline my-2 my-lg-0">
+        <%= text_field_tag :search_param, params[:search_param], 
+                                  placeholder: "Enter name or email", 
+                                  autofocus: true,
+                                  class: "form-control mr-sm-2" %>
+        <%= button_tag(type: :submit, class: "btn btn-outline-success my-2 my-sm-0") do %>
+          </i> Search
+        <% end %>
+      </div>
+    <% end %>
 </nav>

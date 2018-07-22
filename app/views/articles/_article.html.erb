@@ -5,8 +5,13 @@
                 <div class="article-title">
                     <%= link_to course.title, article_path(course)  %>
                 </div>
-                <div class="article-body">
-                    <%= truncate(course.description, lenght: 300) %>
+                <div class="col-xs-6">
+                    <%= truncate(course.description, lenght: 200) %>
+                </div>
+                <div class="col-xs-6">
+                    <% if course.user_id %>
+                        <%= link_to User.find(course.user_id).username, user_welcome_path(User.find(course.user_id).id)%>
+                    <%end%>
                 </div>
             </div>
         </div>

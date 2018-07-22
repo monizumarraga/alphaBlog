@@ -1,0 +1,15 @@
+<% provide(:titulo, "#{@seluser.username} Welcome") %>
+
+<% if @seluser.detail %>
+    <%= render 'details/welcome', obj: @seluser.detail %>
+<% else %>
+    <div class="row">
+        <div class="jumbotron home col-xs-8 col-offset-2">
+            <div class='col-xs-8 home-logo'>
+            </div>
+            <div class='col-xs-12 center'>
+              <h1 class="display-4">Welcome!</h1>
+            </div>
+        </div>
+    </div>
+<% end %>
