@@ -6,6 +6,11 @@
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
                             <div class="well-lg article">
+                                <% if user.image %>
+                                    <div>
+                                        <%= image_tag(user.image.picture.url, width: "auto", height: "300") if user.image.picture? %>
+                                    </div>
+                                <% end %>
                                 <div class="article-title">
                                     <%= link_to user.username, user_welcome_path(user.id)%>
                                     <%if !true %>

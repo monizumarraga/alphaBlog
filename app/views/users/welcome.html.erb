@@ -1,11 +1,14 @@
 <% provide(:titulo, "#{@seluser.username} Welcome") %>
 
 <% if @seluser.detail %>
-    <%= render 'details/welcome', obj: @seluser.detail %>
+    <%= render 'details/welcome', obj: @seluser %>
 <% else %>
     <div class="row">
         <div class="jumbotron home col-xs-8 col-offset-2">
-            <div class='col-xs-8 home-logo'>
+            <div class='col-xs-8 '>
+                <% if obj.image %>
+                   <%= image_tag(@seluser.image.picture.url, width: "auto", height: "300") if @seluser.image.picture? %>
+                <% end %>
             </div>
             <div class='col-xs-12 center'>
               <h1 class="display-4">Welcome!</h1>

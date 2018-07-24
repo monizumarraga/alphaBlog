@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div class='row'>
+    <div class="well cv col-xs-8 col-offset-2">
+        <div class='col-xs-12'>
+            <h1 align='center'>Images</h1>
+            <div class="column-container">
+              <div class="col-xs-8 col-xs-offset-2">
+                  <div class="well-lg article">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th class="col-xs-6 col-xs-offset-2">Name</th>
+                            <th class="col-xs-10 col-xs-offset-2">Picture</th>
+                            <th class="col-xs-8 col-xs-offset-2">User</th>
+                            <th colspan="3"></th>
+                          </tr>
+                        </thead>
+                      
+                        <tbody>
+                          <% @images.each do |image| %>
+                            <tr>
+                              <td class="col-xs-6 col-xs-offset-2"><%= link_to image.name, image_path(image) %></td>
+                              <td class="col-xs-10 col-xs-offset-2"><%= image_tag image.picture.url, width: "auto", height: "100" %></td>
+                              <td class="col-xs-8 col-xs-offset-2"><%= link_to image.user.username, user_path(image.user) %></td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

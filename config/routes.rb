@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :images
   get 'details/index'
   get 'details/new'
   get 'details/edit'

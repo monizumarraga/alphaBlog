@@ -1,0 +1,62 @@
+<div class="row">
+    <div class='col-xs-12'>
+    <%= form_for @image, :html => { multipart: true, :class => "form-horizontal image" } do |form| %>
+      <% if image.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
+    
+          <ul>
+          <% image.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="form-group row">
+        <div class="col-sm-2 col-form-label">
+            <label for="name">Name</label>
+        </div>
+        <div class="col-sm-8 col-form-label">
+            <%= form.text_field :name, class:"form-control", id:"name", placeholder:"Enter picture name", autofocus: true  %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <div class="col-sm-2 col-form-label">
+            <label for="picture">Picture</label>
+        </div>
+        <% if !true %>
+        <div class="col-sm-8 col-form-label">
+            <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png', id:"picture", placeholder:"Enter picture", autofocus: true  %>
+        </div>
+        <%end%>
+        <div class="col-sm-8 col-form-label">
+          <div class="fileUpload btn btn-primary">
+            <span>Upload</span>
+            <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png', id:"picture",class:"upload"   %>
+          </div>
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+              <%= form.submit("Create Image", class:"btn btn-primary") %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#image_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB.');
+    }
+  });
+</script>

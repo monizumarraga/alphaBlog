@@ -1,6 +1,6 @@
 <% if @user.detail %>
     <h1 align="center"><%= link_to "Welcome to #{@user.username}'s page", detail_path(@user.detail)  %></h1>
-    <%= render 'details/welcome', obj: @user.detail %>
+    <%= render 'details/welcome', obj: @user %>
     <br>
     <%= render 'details/about', obj: @user.detail %>
     <br>
