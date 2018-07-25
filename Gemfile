@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
 ruby '2.4.1'
 
+gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use Puma as the app server
@@ -50,6 +52,7 @@ gem 'image_magick', '~> 0.1.9'
 gem 'mini_magick', '~> 4.8'
 gem 'fog-aws'  
 gem 'actionmailer', '~> 5.2'
+gem 'aws-sdk', '~> 2'
 
 gem 'mailgun', '~> 0.11'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
