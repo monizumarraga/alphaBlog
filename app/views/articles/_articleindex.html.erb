@@ -1,0 +1,19 @@
+<% obj.each do |course| %>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="well-lg article">
+                <div class="article-title">
+                    <%= link_to course.title, article_path(course)  %>
+                </div>
+                <div class="col-xs-6">
+                    <%= truncate(course.description, lenght: 200) %>
+                </div>
+                <div class="col-xs-6">
+                    <% if course.user_id %>
+                        <%= link_to User.find(course.user_id).username, user_welcome_path(User.find(course.user_id).id)%>
+                    <%end%>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>
