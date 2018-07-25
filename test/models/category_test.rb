@@ -1,33 +1,35 @@
 require 'test_helper'
 
-class CategoryTest < ActiveSupport::TestCase
-    
-    def setup
-        @category= Category.new(name: "Education")
-    end
-    
-    test "category should be valid" do
-        assert @category.valid?
-    end
-    
-    test "name should be present" do
-        @category.name= ""
-        assert_not @category.valid?
-    end
-    
-    test "name should be unique" do
-        @category.save
-        category2= Category.new(name: "Education")
-        assert_not category2.valid?
-    end
-    
-    test "name should be too long" do
-        @category.name ="a" * 0
-        assert_not @category.valid?
-    end
-    
-    test "name should be too short"do
-        @category.name ="a"
-        assert_not @category.valid?
-    end
+class MessageTest < ActiveSupport::TestCase
+
+  test 'responds to name, email and body' do 
+    msg = Message.new
+
+    assert msg.respond_to?(:name),  'does not respond to :name'
+    assert msg.respond_to?(:email), 'does not respond to :email'
+    assert msg.respond_to?(:body),  'does not respond to :body'
+  end
+  
+   test 'should be valid when all attributes are set' do
+    attrs = { 
+      name: 'stephen',
+      email: 'stephen@example.org',
+      body: 'kthnxbai'
+    }
+
+    msg = Message.new attrs
+    assert msg.valid?, 'should be valid'
+  end
+  
+  
+  test 'name, email and body are required by law' do
+    msg = Message.new
+
+    refute msg.valid?, 'Blank Mesage should be invalid'
+
+    assert_match /blank/, msg.errors[:name].to_s
+    assert_match /blank/, msg.errors[:email].to_s
+    assert_match /blank/, msg.errors[:body].to_s
+  end
+  
 end

@@ -5,45 +5,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContentfooter">
     <ul class="footer navbar-nav mr-auto">
-      <% if logged_in? %>
-          <li class="nav-item navbar-right">
-            <%= link_to 'Log out', logout_path, method: :delete, class:"footer-link" %>
-          </li>
-          <div class="dropup navbar-right">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              User Profile <%= "Admin" if current_user.admin? %>
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <%= link_to "View your profile", user_path(current_user), class:"dropdown-item"%>
-              <div class="divider"></div>  
-              <%if current_user.image %>
-                <%= link_to "Edit your profile image", edit_image_path(current_user.image), class:"dropdown-item"%>
-              <% else %>
-                <%= link_to "Edit your profile image", new_image_path, class:"dropdown-item"%>
-              <% end %>
-              <div class="divider"></div>  
-              <%= link_to "Edit your profile", edit_user_path(current_user), class:"dropdown-item"%>
-              <div class="divider"></div>
-              <%= link_to "New Course", new_article_path, class:"dropdown-item"%>
-              <div class="divider"></div>
-              <%= link_to "New details", new_detail_path, class:"dropdown-item"%>
-              <% if logged_in? and current_user.admin? %>
-                <div class="divider"></div>
-                <%= link_to "View Categories", categories_path, class:"dropdown-item" %>
-                <div class="divider"></div>
-                <%= link_to "Create New Category", new_category_path, class:"dropdown-item" %>
-              <% end %>
-            </ul>
-          </div>
-      <% else %>
-          <li class="nav-item navbar-right">
-            <%= link_to 'Sign up', new_user_path, class:"footer-link" %>
-          </li>
-          <li class="nav-item navbar-right">
-            <%= link_to 'Log in', login_path, class:"footer-link" %>
-          </li>
-      <% end %>
+      <li class="nav-item navbar-right">
+        <%= link_to 'Contact me', new_message_path, class:"footer-link" %>
+      </li>
     </ul>
   </div>
   </div>

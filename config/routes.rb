@@ -32,13 +32,14 @@ Rails.application.routes.draw do
   resources :details;
   
   get 'welcome/home';
-  get 'welcome/about';
-  get 'welcome/cv';
   root 'welcome#home';
   
   get 'login', to: 'sessions#new';
   post 'login', to: 'sessions#create';
   delete 'logout', to: 'sessions#destroy';
+  
+  get 'contact-me', to: 'messages#new', as: 'new_message'
+  post 'contact-me', to: 'messages#create', as: 'create_message'
   
   resources :categories, except: [:destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
