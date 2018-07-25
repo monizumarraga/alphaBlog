@@ -50,9 +50,9 @@ gem 'carrierwave'
 gem 'image_magick', '~> 0.1.9'
 gem 'mini_magick', '~> 4.8'
 gem 'fog-aws'  
-gem 'actionmailer', '~> 5.2'
 gem 'aws-sdk', '~> 2'
 
+gem 'actionmailer', '~> 5.2'
 gem 'mailgun', '~> 0.11'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
