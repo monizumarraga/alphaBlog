@@ -7,10 +7,6 @@ require 'rails/all'
 # config/application.rb
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
-
-HOSTNAME = ENV['HOSTNAME']
-
 module AlphaBlog
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
