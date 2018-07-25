@@ -14,13 +14,13 @@ module AlphaBlog
     config.assets.initialize_on_precompile = false
     
     config.action_mailer.smtp_settings = {
-      :address        => 'smtp.gmail.com',
+      :enable_starttls_auto => true,
+      :address => 'smtp.gmail.com',
+      :port => 587,
+      :authentication => :plain,
       :domain         => 'gmail',
-      :port           => 587,
       :user_name        => ENV['GMAIL_USERNAME'],
-      :password         => ENV['GMAIL_PASSWORD'],
-      :authentication     => 'login',
-      :enable_starttls_auto => true
+      :password         => ENV['GMAIL_PASSWORD']
     }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
