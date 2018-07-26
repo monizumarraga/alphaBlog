@@ -13,8 +13,8 @@ class Image < ApplicationRecord
     end
     
     def upload_to_s3
-        s3 = Aws::S3::Resource.new(region:'us-west-2')
-        obj = s3.bucket('alphablogimages').object('key')
+        s3 = Aws::S3::Resource.new(region:'AWS_REGION')
+        obj = s3.bucket('S3_BUCKET').object('AWS_SECRET_ACCESS_KEY')
         obj.upload_file('/path/to/source/file')
     end
 end
