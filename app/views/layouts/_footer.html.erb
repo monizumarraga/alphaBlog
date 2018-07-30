@@ -5,9 +5,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContentfooter">
     <ul class="footer navbar-nav mr-auto">
+      <%if logged_in? %>
       <li class="nav-item navbar-right">
         <%= link_to 'Contact me', new_message_path, class:"footer-link" %>
       </li>
+      <% end %>
     </ul>
   </div>
   </div>
