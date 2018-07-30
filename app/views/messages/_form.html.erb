@@ -1,11 +1,24 @@
-<% provide(:titulo, "Contact me") %>
-<h1 align="center">Contact me</h1>
-
-<%= render 'form'%>
-<%if !true%>
 <div class="row">
     <div class='col-xs-12'>
         <%= form_for @message, url: create_message_url do |f| %>
+            <%if @seluser%>
+              <div class="form-group row">
+                <div class="col-sm-2 col-form-label">
+                    <label for="name">To</label>
+                </div>
+                <div class="col-sm-8 col-form-label">
+                    <%= f.text_field :to, value: @seluser.email, placeholder: 'name', class:"form-control" %>
+                </div>
+            <%else%>
+              <div class="form-group row">
+                <div class="col-sm-2 col-form-label">
+                    <label for="name">To</label>
+                </div>
+                <div class="col-sm-8 col-form-label">
+                    <%= f.text_field :to, value: current_user.email, placeholder: 'name', class:"form-control" %>
+                </div>
+            <%end%>
+          </div>
           <div class="form-group row">
             <div class="col-sm-2 col-form-label">
                 <label for="name">Name</label>
@@ -43,4 +56,4 @@
         <% end %>
     </div>
 </div>
-<%end%>
+

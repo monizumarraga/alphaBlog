@@ -59,6 +59,11 @@ class UsersController < ApplicationController
     @seluser=User.find(params[:format])
   end
   
+  def contactme
+    @seluser=User.find(params[:format])
+    @message = Message.new
+  end
+  
   def details
     @seluser=User.find(params[:format])
     @category=Category.find_by(name: params[:name])

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new';
   get 'users/index';
   get 'user/welcome', to:"users#welcome"
+  get 'user/contactme', to:"users#contactme";
   get 'user/about', to:"users#about"
   get 'user/profile', to: "users#profile"
   get 'user/details', to: "users#details"

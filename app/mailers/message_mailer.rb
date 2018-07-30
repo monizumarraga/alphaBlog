@@ -1,13 +1,12 @@
-class MessageMailer < ApplicationMailer
+class MessageMailer < ActionMailer::Base
+  default :from => 'monizumarraga@hotmail.com'
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.message_mailer.contact_me.subject
-  #
-  def contact_me(message)
-    @body = message.body
-
-    mail to: "stephen@example.org", from: message.email
+  # send a signup email to the user, pass in the user object that   contains the user's email address
+  def contact_me(message, to)
+    mail( 
+      :from => message.email,
+      :to => to,
+      :message => message.body,
+      :subject => 'CV List contact mail' )
   end
 end
