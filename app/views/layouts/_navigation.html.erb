@@ -10,7 +10,7 @@
         <%= link_to "Users", users_path, class:"nav-link"%>
       </li>
       <%if @seluser %>
-            <li class="dropdown nav-item">
+            <li class="dropdown" style="list-style-type:none">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               User <%= @seluser.username %>
               <span class="caret"></span>
@@ -32,33 +32,41 @@
     </ul>
     <ul class="navbar-nav mr-auto navbar-right">
       <% if logged_in? %>
-          <li class="dropdown nav-item">
+          <li class="dropdown" style="list-style-type:none">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              User Profile <%= "Admin" if current_user.admin? %>
+              User Profile
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
               <%= link_to "View your profile", user_path(current_user), class:"dropdown-item"%>
               <div class="divider"></div>  
+              <%= link_to "Edit your profile", edit_user_path(current_user), class:"dropdown-item"%>
+              <div class="divider"></div>
               <%if current_user.image %>
                 <%= link_to "Edit your profile image", edit_image_path(current_user.image), class:"dropdown-item"%>
               <% else %>
                 <%= link_to "Edit your profile image", new_image_path, class:"dropdown-item"%>
               <% end %>
               <div class="divider"></div>
-              <%= link_to "Edit your profile", edit_user_path(current_user), class:"dropdown-item"%>
-              <div class="divider"></div>
               <%= link_to "New Course", new_article_path, class:"dropdown-item"%>
               <div class="divider"></div>
               <%= link_to "New details", new_detail_path, class:"dropdown-item"%>
-              <% if logged_in? and current_user.admin? %>
+            </ul>
+          </li>
+          <% if logged_in? and current_user.admin? %>
+            <li class="dropdown" style="list-style-type:none">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= "Admin" if current_user.admin? %>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <div class="divider"></div>
                 <%= link_to "View Categories", categories_path, class:"dropdown-item" %>
                 <div class="divider"></div>
                 <%= link_to "Create New Category", new_category_path, class:"dropdown-item" %>
-              <% end %>
-            </ul>
-          </li>
+              </ul>
+            </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to 'Log out', logout_path, method: :delete, class:"footer-link" %>
           </li>
