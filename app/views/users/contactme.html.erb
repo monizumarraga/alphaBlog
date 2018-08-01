@@ -1,6 +1,25 @@
 <% provide(:titulo, "Contact me") %>
 <h1 align="center">Contact me</h1>
 
+<% if @seluser.phone %>
+<br>
+<h2 align="center">Call me</h2>
+<div class="row">
+        <div class='col-xs-12'>
+          <div class="form-group row">
+            <div class="col-sm-2 col-form-label">
+                <label for="phone">Phone</label>
+            </div>
+            <div class="col-sm-8 col-form-label">
+                <%= @seluser.phone  %>
+            </div>
+          </div>
+    </div>
+</div>
+<%end%>
+<br>
+<h2 align="center">Write an email</h2>
+          
 <%= render 'messages/form'%>
 <%if !true%>
 <div class="row">
