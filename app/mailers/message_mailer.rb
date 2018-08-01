@@ -1,5 +1,5 @@
 class MessageMailer < ActionMailer::Base
-  default :from => 'monizumarraga@hotmail.com'
+  default :from => ENV["SENDGRID_MAIL_USERNAME"]
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
   def contact_me(message)
@@ -7,6 +7,6 @@ class MessageMailer < ActionMailer::Base
       :to => message.to,
       :from => message.email,
       :message => message.body,
-      :subject => 'CV List contact mail' )
+      :subject => 'CV List contact mail from '+ message.email )
   end
 end
