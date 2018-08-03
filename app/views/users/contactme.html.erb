@@ -28,11 +28,8 @@
                 <label for="email">Email</label>
             </div>
             <div class="col-sm-8 col-form-label">
-                <%= @seluser.email  %>
+                <%= render 'messages/form'%>
             </div>
           </div>
     </div>
 </div>
-<%if !true%>   
-<%= render 'messages/form'%>
-<%end%>
