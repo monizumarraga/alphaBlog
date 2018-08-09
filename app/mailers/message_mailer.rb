@@ -6,7 +6,7 @@ class MessageMailer < ActionMailer::Base
     mail( 
       :to => message.to,
       :from => message.email,
-      :html => message.body,
+      :contents => message.body,
       :subject => 'CV List contact mail from '+ message.email)
   end
 end
