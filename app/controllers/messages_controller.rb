@@ -8,7 +8,8 @@ class MessagesController < ApplicationController
         if @message.valid?
           MessageMailer.contact_me(@message).deliver_now
           flash[:success] = "Message sent, thanks"
-          redirect_to root_path
+          @seluser=User.find_by(email: params[:message][:to])
+          redirect_to user_welcome_path(@seluser.id)
         else
           flash[:danger] = @message.errors.full_messages.join(', ')
           render :new

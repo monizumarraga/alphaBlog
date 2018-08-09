@@ -11,7 +11,7 @@
             <div class="col-sm-2 col-form-label">
                 <label for="phone">Phone</label>
             </div>
-            <div class="col-sm-8 col-form-label">
+            <div class="col-sm-8 col-form-label" style="border: 1px solid #cccccc;border-radius: 3px;background-color: #eeeeee;">
                 <%= @seluser.phone  %>
             </div>
           </div>
@@ -22,14 +22,5 @@
 <h2 align="center">Write an email</h2>
 <hr>
 <div class="row">
-        <div class='col-xs-12'>
-          <div class="form-group row">
-            <div class="col-sm-2 col-form-label">
-                <label for="email">Email</label>
-            </div>
-            <div class="col-sm-8 col-form-label">
-                <%= render 'messages/form'%>
-            </div>
-          </div>
-    </div>
+    <%= render 'messages/form'%>
 </div>
