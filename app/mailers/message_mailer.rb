@@ -3,15 +3,11 @@ class MessageMailer < ActionMailer::Base
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
   def contact_me(message)
-    content = Content.new(
-      type: 'text/html',
-      value: message.body
-      )
-
-    mail( 
-      :to => message.to,
-      :from => message.email,
-      :contents => content,
-      :subject => 'CV List contact mail from '+ message.email)
+    mail(
+      to: message.to,
+      from: message.email,
+      body: message.content,
+      content_type: "text/html",
+      subject: 'CV List contact mail from '+ message.email)
   end
 end
